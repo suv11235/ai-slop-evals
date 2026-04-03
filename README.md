@@ -78,8 +78,11 @@ Benchmark + evaluation harness for **communicative slop**: output that is (I) no
 - `harness/` runner + adapters + reporting
 - `results/` (gitignored) local run outputs
 
+## References
+
+Recent literature notes live in `docs/references.md`.
+
 ## Next concrete step (MVP)
 
 Create **10 probes per dimension** (40 total), each with at least:
 1) a primary prompt, 2) one contrast variant, and 3) a scoring checklist that detects the dimension’s slop signature.
-
