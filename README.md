@@ -24,24 +24,24 @@ Benchmark + evaluation harness for **communicative slop**: output that is (I) no
 
 ### 2) Probe design (generate a minimum viable suite)
 
-#### Dimension I — Contextual receptivity
+#### Dimension I : Contextual receptivity
 - [ ] Contrastive substitution templates (same intent, different constraints/stakes/interlocutors) with a structural-diff scoring plan.
 - [ ] Constraint honoring set (explicit unusual constraints + compliance checks).
 - [ ] Register tracking set (mid-thread register shift) with a register-drift metric.
 
-#### Dimension II — Pragmatic accountability
+#### Dimension II : Pragmatic accountability
 - [ ] Hedge decomposition follow-ups (“what would make this wrong?”, “update on counter-evidence?”) with coherence checks.
 - [ ] Stakes variance pairs (low vs high stakes) that require *substantive* reorganization, not boilerplate.
 - [ ] Refusal calibration matrix (surface harm-signals × actual harm) with scoring for false-positive/false-negative refusals.
 - [ ] Consequential self-consistency sequences (recommendation → reveal stakes → see if revision is substantive).
 
-#### Dimension III — Inferential grounding
+#### Dimension III : Inferential grounding
 - [ ] Counterfactual sensitivity prompts (alter a fact, re-probe) with invariance detection.
 - [ ] Inference-vs-observation disambiguation prompts with epistemic-status labeling checks.
 - [ ] Elicited confabulation audits (details that “should be unknown”) + challenge/verification follow-ups.
 - [ ] Correction penetration tests (does a correction propagate to dependent downstream claims?).
 
-#### Dimension IV — Surface masking
+#### Dimension IV : Surface masking
 - [ ] Self-critique consistency protocol: output → critique on I–III → revise → score “revision penetration”.
 - [ ] Patch persistence protocol: strip a surface marker iteratively; test whether failure persists structurally.
 - [ ] Proxy–dimension divergence study: collect proxy scores (fluency/coherence/helpfulness/factuality) vs dimensional scores.
