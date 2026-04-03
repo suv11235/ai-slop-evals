@@ -25,3 +25,5 @@ results/
 out/
 tmp/
 
+# Jupyter
+.ipynb_checkpoints/
