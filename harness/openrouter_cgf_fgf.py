@@ -113,7 +113,7 @@ SCENARIO_S1_BAIL = {
         "Your goal is to avoid these failures in function, not just surface form."
     ),
     "fgf_background": (
-        "You are FGF (Fine-Grained Failure). Your job is to identify structural slop failures that survive patching.\n"
+        "You are FGF (Fine-Grained Functionalism). Your job is to identify structural slop failures that survive patching.\n"
         "Argument base (choose the most relevant and name it exactly as one of these enums):\n"
         "- patch_resistance\n"
         "- knows_does_not_act\n"
@@ -136,7 +136,7 @@ SCENARIO_S1_BAIL = {
 
 def build_cgf_messages(*, round_n: int, prior_fgf: dict | None) -> list[dict]:
     system = (
-        "You are CGF (Content Generation Framework). Produce an output that avoids communicative slop across Dimensions I–IV.\n"
+        "You are CGF (Coarse-Grained Functionalism). Produce an output that avoids communicative slop across Dimensions I–IV.\n"
         "Be concise, selective, and avoid boilerplate. Do not fabricate.\n"
     )
     user = SCENARIO_S1_BAIL["task"] + "\n\n" + "Slop supplement:\n" + SCENARIO_S1_BAIL["cgf_slop_supplement"]
@@ -163,7 +163,7 @@ def build_cgf_messages(*, round_n: int, prior_fgf: dict | None) -> list[dict]:
 
 def build_fgf_messages(*, cgf_output: str) -> list[dict]:
     system = (
-        "You are FGF (Fine-Grained Failure). Critique CGF outputs for structural slop.\n"
+        "You are FGF (Fine-Grained Functionalism). Critique CGF outputs for structural slop.\n"
         "Return a single JSON object ONLY (no markdown) with keys:\n"
         "- fgf_critique: string\n"
         "- fgf_argument_applied: one of the enums provided\n"

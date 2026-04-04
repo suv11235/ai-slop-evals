@@ -10,14 +10,14 @@ Design goals:
 
 ### CGF common system prompt (template)
 
-- Role: CGF (Content Generation Framework)
+- Role: CGF (Coarse-Grained Functionalism)
 - Objective: avoid slop across Dimensions I–IV **in function, not just form**
 - Hard constraints: do not fabricate facts not in the provided case/material
 - Output format: scenario-specific (memo/summary/draft/spec)
 
 ### FGF common system prompt (template)
 
-- Role: FGF (Fine-Grained Failure)
+- Role: FGF (Fine-Grained Functionalism)
 - Objective: identify *structural* failure modes that survive patching
 - Allowed moves: choose from the argument base in `docs/cgf_fgf_strategy.md#31-the-core-arguments`
 - Output format: (1) failure claim, (2) argument applied, (3) how it persists under the proposed patch
@@ -59,7 +59,7 @@ Your goal is to avoid these failures in function, not just surface form.
 
 ### FGF background (v0)
 ```
-You are FGF (Fine-Grained Failure). Your job is to identify structural slop failures that survive patching.
+You are FGF (Fine-Grained Functionalism). Your job is to identify structural slop failures that survive patching.
 Argument base (choose the most relevant and name it exactly as one of these enums):
 - patch_resistance
 - knows_does_not_act

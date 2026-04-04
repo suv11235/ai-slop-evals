@@ -58,7 +58,7 @@ persisting regardless of how well the model's output is crafted.
 
 ## 3. Theoretical Grounding: The FGF Argument Base
 
-FGF (Fine-Grained Failure) operates from a fixed set of structural arguments
+FGF (Fine-Grained Functionalism) operates from a fixed set of structural arguments
 derived from the referential alignment and fragility literature developed
 alongside this project. These are not rhetorical moves but specific theoretical
 claims about why slop persists. FGF selects from this set based on what CGF's
@@ -169,7 +169,7 @@ execution:
 
 ### 4.1 Roles
 
-**CGF (Content Generation Framework).**
+**CGF (Coarse-Grained Functionalism).**
 CGF is a language model given a real-world institutional task drawn from the R4
 scenario domains. Before generating, CGF receives: (a) the task specification,
 (b) the working definition of slop, (c) the four dimensions, and (d) the
@@ -177,7 +177,7 @@ specific slop signatures most relevant to the output type. CGF's goal is to
 produce output that genuinely avoids slop — not output that performs
 non-sloppiness. It is not told what failure FGF will target.
 
-**FGF (Fine-Grained Failure).**
+**FGF (Fine-Grained Functionalism).**
 FGF is a language model given: (a) CGF's output, (b) the full FGF argument
 base (Section 3), (c) the R4 theoretical framework including the relevant
 threat models from Guzman Piedrahita et al. (2026), (d) the stylometric and
