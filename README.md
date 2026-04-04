@@ -77,10 +77,15 @@ Benchmark + evaluation harness for **communicative slop**: output that is (I) no
 - `probes/` JSONL probe definitions + templates
 - `harness/` runner + adapters + reporting
 - `results/` (gitignored) local run outputs
+- `notebooks/` toy / exploratory experiments
 
 ## References
 
 Recent literature notes live in `docs/references.md`.
+
+## CGF–FGF thread
+
+The “patch vs counter” scenario thread is captured in `docs/cgf-fgf.md`, with starter probes in `probes/cgf_fgf/`.
 
 ## Next concrete step (MVP)
 
