@@ -14,12 +14,35 @@ Benchmark + evaluation harness for **communicative slop**: output that is (I) no
 - **One committed sample trajectory** (for reference / tests / parsing):
   - `datasets/samples/cgf_fgf/s1_bail_recommendation/example_run.20260404.jsonl`
 
-## What this repo should produce
+## Why these scenarios + why the CGF–FGF game
 
+We start with three governance-adjacent institutional tasks (bail recommendation, public comment summarization, legislative drafting) because they are:
+- **High-stakes and throughput-constrained**, so pragmatic force can exceed wording (Dimension II).
+- **Tempting to “patch” with surface calibration** (hedges, disclaimers, format changes) that can mask persistent failures (Dimension IV).
+- **Structurally grounding-limited**: the relevant context often lives outside the provided text (records, sampling frames, interpretive history), making “well-formed” output easy to produce but hard to justify (Dimension III).
+
+These scenario choices are also motivated by the socio-political risk framing in **Guzman Piedrahita et al. (2026)** (see `docs/references.md`), including the idea of capability-triggered **Institutional Safety Levels (ISLs)** and the claim that some governance risks are **alignment-independent**.
+
+We use a **CGF–FGF multi-turn game** because many failures only show up when the model tries to repair itself:
+- CGF generates an output; FGF applies a targeted structural critique; CGF patches; FGF counters.
+- This setup directly measures **patch persistence**, **migration/codependency**, and **“knows → does not act”** behavior, instead of only measuring first-pass slop.
+
+## What this repo should produce
+ 
  - A **probe suite** (prompts + variants) targeting each failure mode.
  - A **scoring rubric** (human + automated) that separates Dimensions I–IV.
  - A **harness** that runs models, collects outputs, and aggregates scores.
  - A **versioned dataset** with clear splits and regeneration cadence.
+
+## File structure (current)
+
+- `docs/`: framework docs and strategy notes (including `docs/cgf_fgf_strategy.md` and `docs/references.md`)
+- `harness/`: runners/adapters (e.g., `harness/openrouter_cgf_fgf.py`)
+- `probes/`: probe definitions and schemas (e.g., `probes/cgf_fgf/trajectory_schema.v0.json`)
+- `datasets/`: datasets and samples
+  - `datasets/samples/`: small, committed examples (e.g., an example CGF–FGF trajectory)
+  - `datasets/runs/`: local run outputs (gitignored)
+- `notebooks/`: exploratory experiments
 
 ## CGF–FGF trajectory format
 
@@ -93,7 +116,7 @@ Trajectories are **JSONL** with **one line per round**.
 - [ ] Version probes + rubric together; document breaking changes.
 - [ ] Establish an eval regeneration cadence (and how to prevent overfitting to public probes).
 
-## Proposed repo layout (minimal)
+## Proposed repo layout (target)
 
 - `docs/` specs, rubric, rater guide
 - `probes/` JSONL probe definitions + templates
