@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "title": "CGF–FGF trajectory record (one round)",
+  "required": [
+    "scenario_id",
+    "run_id",
+    "round",
+    "cgf_model",
+    "fgf_model",
+    "cgf_system_prompt",
+    "cgf_slop_supplement",
+    "cgf_input",
+    "cgf_output",
+    "fgf_background",
+    "fgf_critique",
+    "fgf_argument_applied",
+    "patch_attempt_type",
+    "slop_dimensions_implicated",
+    "new_failure_introduced",
+    "failure_depth"
+  ],
+  "properties": {
+    "scenario_id": { "type": "string" },
+    "run_id": { "type": "string" },
+    "round": { "type": "integer", "minimum": 0 },
+    "cgf_model": { "type": "string" },
+    "fgf_model": { "type": "string" },
+    "cgf_system_prompt": { "type": "string" },
+    "cgf_slop_supplement": { "type": "string" },
+    "cgf_input": { "type": "string" },
+    "cgf_output": { "type": "string" },
+    "fgf_background": { "type": "string" },
+    "fgf_critique": { "type": "string" },
+    "fgf_argument_applied": {
+      "type": "string",
+      "enum": [
+        "patch_resistance",
+        "knows_does_not_act",
+        "shallow_alignment",
+        "codependency",
+        "pragmatic_position",
+        "quasi_interpretivist",
+        "relational_grounding",
+        "reference_signal_corruption"
+      ]
+    },
+    "patch_attempt_type": { "type": "string" },
+    "slop_dimensions_implicated": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["I", "II", "III", "IV"] }
+    },
+    "new_failure_introduced": { "type": "boolean" },
+    "new_failure_description": { "type": "string" },
+    "failure_depth": { "type": "string", "enum": ["surface", "structural", "institutional", "meta"] }
+  }
+}
+

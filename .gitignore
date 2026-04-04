@@ -27,3 +27,6 @@ tmp/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Large/local datasets
+datasets/runs/

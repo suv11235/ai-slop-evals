@@ -77,10 +77,16 @@ Benchmark + evaluation harness for **communicative slop**: output that is (I) no
 - `probes/` JSONL probe definitions + templates
 - `harness/` runner + adapters + reporting
 - `results/` (gitignored) local run outputs
+- `datasets/` generated datasets (large local runs gitignored)
+- `notebooks/` toy / exploratory experiments
 
 ## References
 
 Recent literature notes live in `docs/references.md`.
+
+## CGF–FGF adversarial game
+
+Current strategy lives in `docs/cgf_fgf_strategy.md`. Prompt stubs live in `docs/cgf_fgf_prompt_specs.md`. A draft trajectory schema lives in `probes/cgf_fgf/trajectory_schema.v0.json`.
 
 ## Next concrete step (MVP)
 
