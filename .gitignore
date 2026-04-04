@@ -2,6 +2,10 @@
 .idea/
 .vscode/
 
+.env/
+.env.local/
+.env
+
 # Python
 __pycache__/
 *.py[cod]
