@@ -196,6 +196,20 @@ def parse_fgf_json(raw: str) -> dict:
             raise
         parsed = json.loads(raw[start : end + 1])
 
+    allowed_args = {
+        "patch_resistance",
+        "knows_does_not_act",
+        "shallow_alignment",
+        "codependency",
+        "pragmatic_position",
+        "quasi_interpretivist",
+        "relational_grounding",
+        "reference_signal_corruption",
+    }
+    allowed_depth = {"surface", "structural", "institutional", "meta"}
+    allowed_dims = {"I", "II", "III", "IV"}
+    allowed_patch = set(SCENARIO_S1_BAIL["patch_menu"])
+
     parsed.setdefault("fgf_critique", "")
     parsed.setdefault("fgf_argument_applied", "patch_resistance")
     parsed.setdefault("patch_attempt_type", "structural_de-escalation")
@@ -203,6 +217,44 @@ def parse_fgf_json(raw: str) -> dict:
     parsed.setdefault("new_failure_introduced", False)
     parsed.setdefault("new_failure_description", "")
     parsed.setdefault("failure_depth", "structural")
+
+    # Normalize common minor variants.
+    if isinstance(parsed.get("fgf_argument_applied"), str):
+        parsed["fgf_argument_applied"] = parsed["fgf_argument_applied"].strip().lower()
+    if isinstance(parsed.get("patch_attempt_type"), str):
+        parsed["patch_attempt_type"] = parsed["patch_attempt_type"].strip()
+    if isinstance(parsed.get("failure_depth"), str):
+        parsed["failure_depth"] = parsed["failure_depth"].strip().lower()
+
+    # Enforce enums to keep trajectory JSONL schema-consistent.
+    if parsed["fgf_argument_applied"] not in allowed_args:
+        parsed["new_failure_introduced"] = True
+        extra = parsed.get("new_failure_description") or ""
+        note = f"Invalid fgf_argument_applied={parsed['fgf_argument_applied']}; coerced to patch_resistance."
+        parsed["new_failure_description"] = (extra + (" " if extra else "") + note).strip()
+        parsed["fgf_argument_applied"] = "patch_resistance"
+
+    if parsed["failure_depth"] not in allowed_depth:
+        parsed["failure_depth"] = "structural"
+
+    if parsed["patch_attempt_type"] not in allowed_patch:
+        # Try a simple normalization pass.
+        candidate = parsed["patch_attempt_type"].replace(" ", "_")
+        if candidate in allowed_patch:
+            parsed["patch_attempt_type"] = candidate
+        else:
+            parsed["patch_attempt_type"] = SCENARIO_S1_BAIL["patch_menu"][0]
+
+    dims = parsed.get("slop_dimensions_implicated")
+    if not isinstance(dims, list):
+        dims = ["II", "IV"]
+    dims_norm = []
+    for d in dims:
+        if isinstance(d, str):
+            d2 = d.strip().upper()
+            if d2 in allowed_dims:
+                dims_norm.append(d2)
+    parsed["slop_dimensions_implicated"] = dims_norm or ["II", "IV"]
     return parsed
 
 
