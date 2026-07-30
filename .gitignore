@@ -34,3 +34,5 @@ tmp/
 
 # Large/local datasets
 datasets/runs/
+.arize-tmp-traces/
+.arize-tmp-evals/

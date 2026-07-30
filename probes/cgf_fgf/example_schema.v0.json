@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CGF–FGF golden evaluation example",
+  "type": "object",
+  "required": [
+    "local_example_id",
+    "scenario_id",
+    "split",
+    "probe_type",
+    "primary_dimensions",
+    "task",
+    "cgf_slop_supplement",
+    "fgf_background",
+    "patch_menu",
+    "expected_behavior"
+  ],
+  "properties": {
+    "local_example_id": { "type": "string", "minLength": 1 },
+    "scenario_id": { "type": "string", "minLength": 1 },
+    "split": { "type": "string", "enum": ["development", "holdout"] },
+    "probe_type": {
+      "type": "string",
+      "enum": [
+        "contextual_receptivity",
+        "pragmatic_accountability",
+        "inferential_grounding",
+        "surface_masking"
+      ]
+    },
+    "primary_dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "enum": ["I", "II", "III", "IV"] }
+    },
+    "task": { "type": "string", "minLength": 1 },
+    "cgf_slop_supplement": { "type": "string", "minLength": 1 },
+    "fgf_background": { "type": "string", "minLength": 1 },
+    "patch_menu": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "expected_behavior": {
+      "type": "object",
+      "required": ["required", "prohibited", "missing_fields"],
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "prohibited": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "missing_fields": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}
